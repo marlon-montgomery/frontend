@@ -852,7 +852,7 @@ export class GlobalVarsService {
     this.logEvent(`account : ${event} : launch`);
     this.identityService
       .launch("/log-in", {
-        accessLevelRequest: "4",
+        accessLevelRequest: 4,
         referralCode: this.referralCode(),
         hideJumio: true,
       })
