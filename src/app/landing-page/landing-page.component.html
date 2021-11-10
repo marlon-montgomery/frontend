@@ -4,7 +4,7 @@
     <div class="row d-flex justify-content-center landing__ticker">
       <div class="input-group w-auto">
         <div class="input-group-prepend">
-           <label class="landing__nav-buy input-group-text">{{ globalVars.desoToUSDExchangeRateToDisplay }} USD</label>
+          <label class="landing__nav-buy input-group-text">{{ globalVars.desoToUSDExchangeRateToDisplay }} USD</label>
         </div>
         <div class="input-group-append">
           <a
@@ -21,25 +21,25 @@
 </div>
 <div class="w-100 d-lg-none d-flex align-items-center justify-content-center">
   <a class="landing__nav-link" (click)="globalVars.launchSignupFlow()">
-    Sign Up and Get Started!
+    Sign Up and Get
+    <b>{{ globalVars.getFreeDESOMessage() }} Free</b>
   </a>
 </div>
 
 <div class="w-100 border-bottom px-10px">
   <div class="container-lg landing__header">
     <div class="row">
-      <div class="col landing__logo deso" [ngStyle]="{'background': getLogoBackground()}"></div>
+      <div class="col landing__logo deso" [ngStyle]="{ background: getLogoBackground() }"></div>
       <div class="col d-lg-flex d-none align-items-center">
         <a class="landing__nav-link" (click)="globalVars.launchSignupFlow()">
-          Sign Up and Get Started
+          Sign Up and Get
+          <b>{{ globalVars.getFreeDESOMessage() }} Free</b>
         </a>
       </div>
       <div class="d-flex align-items-center">
         <div class="input-group w-auto d-none d-sm-flex" style="margin-left: 25px">
           <div class="input-group-prepend">
-            <label class="landing__nav-buy input-group-text">
-              {{ globalVars.desoToUSDExchangeRateToDisplay }} USD
-            </label>
+            <label class="landing__nav-buy input-group-text">{{ globalVars.desoToUSDExchangeRateToDisplay }} USD</label>
           </div>
           <div class="input-group-append">
             <a
@@ -53,7 +53,6 @@
         </div>
         <a class="landing__nav-link" href="https://docs.deso.org/" target="_blank">About</a>
         <a class="landing__nav-link" href="https://docs.deso.org/#the-ultimate-vision" target="_blank">Vision</a>
-        <a class="landing__nav-link" href="https://docs.deso.org/zhong-wen" target="_blank">中文</a>
         <a class="landing__nav-link" (click)="globalVars.launchSignupFlow()">Sign Up</a>
       </div>
     </div>
@@ -65,9 +64,9 @@
     <div class="col text-center">
       <img src="../../assets/img/logo-md.svg" class="mb-30px" />
       <h1 class="font-weight-bold text-grey4 slide-up-1 primaryFontFamily fontExtraBold">
-        MediaTech 
+        MediaTech
         <br class="d-sm-none" />
-        Social Network
+        Crypto Network
       </h1>
       <img src="../../assets/img/line-dotted.svg" class="my-30px" />
       <div class="row slide-up-2">
@@ -104,9 +103,10 @@
       <h3 class="landing__prop-header text-center primaryFontFamilyBold primaryColor">Everyone gets their own coin</h3>
       <p class="landing__prop-desc text-center primaryFontFamilyRegular">
         Your favorite artist has a coin you can buy or sell. The price
+        <br class="d-none d-sm-block" />
         goes up as more people buy. You can have your own coin too.
-        </p>
-        <a href="https://docs.deso.org/" target="_blank">
+      </p>
+      <a href="https://docs.deso.org/" target="_blank">
         <div
           class="learnMore text-greyF col-lg-4 col-md-4 col-sm-12 col-xs-12 offset-lg-4 offset-md-4 mb-25px text-center"
         >
@@ -163,24 +163,23 @@
               </tr>
             </tbody>
           </table>
+          <div class="row d-flex justify-content-center invisible" animateOnScroll animationName="slide-up-3">
+            <div class="row d-flex justify-content-center">
+              <a
+                class="btn btn-sm toFollow landing__btn-cta"
+                [routerLink]="'/' + globalVars.RouteNames.CREATORS"
+                queryParamsHandling="merge"
+              >
+                Find creators to follow
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="row d-flex justify-content-center invisible" animateOnScroll animationName="slide-up-3">
-    <div class="row d-flex justify-content-center">
-      <a
-        class="btn btn-sm btn-outline-primary landing__btn-cta"
-        [routerLink]="'/' + globalVars.RouteNames.CREATORS"
-        queryParamsHandling="merge"
-      >
-        Find creators to follow
-      </a>
-    </div>
-  </div>
-
-    <div
+  <div
     class="row d-flex justify-content-center invisible primaryFontFamilyRegular"
     animateOnScroll
     animationName="slide-up"
@@ -193,7 +192,7 @@
         <b>DeSo is not a company.</b>
         It's an open-source blockchain like Bitcoin.
         <br class="d-none d-md-block" />
-        You can own a piece by buying the $DESO coin.      
+        You can own a piece by buying the $DESO coin.
       </p>
       <a href="https://docs.deso.org/#the-ultimate-vision" target="_blank">
         <div
@@ -203,8 +202,8 @@
         </div>
       </a>
       <div class="row d-flex justify-content-center mb-30px">
-        <div class="col-sm-10 col-xs-12 mb-0 landingProp br-8px mb-30px">          
-     	  <div *ngFor="let post of featuredPosts">
+        <div class="col-sm-10 col-xs-12 mb-0 landingProp br-8px mb-30px">
+          <div *ngFor="let post of featuredPosts">
             <div class="d-flex border-bottom pb-3 pt-3">
               <img class="landing__post-img" src="{{ post.pic }}" />
               <div class="d-flex flex-column justify-content-start text-left ml-3">
@@ -232,16 +231,15 @@
               </div>
             </div>
           </div>
+          <div class="row d-flex justify-content-center invisible" animateOnScroll animationName="slide-up">
+            <div class="row d-flex justify-content-center">
+              <a class="btn btn-sm toFollow text-greyF landing__btn-cta" (click)="globalVars.launchSignupFlow()">
+                Create your feed
+              </a>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-
-  <div class="row d-flex justify-content-center invisible" animateOnScroll animationName="slide-up">
-    <div class="row d-flex justify-content-center">
-      <a class="btn btn-sm btn-outline-primary landing__btn-cta" (click)="globalVars.launchSignupFlow()">
-        Create your feed
-      </a>
     </div>
   </div>
 </div>
@@ -249,18 +247,14 @@
 <div class="container-lg border-top border-left border-right landing__platform primaryFontFamily">
   <div class="row d-flex justify-content-center invisible" animateOnScroll animationName="slide-up">
     <div class="col-sm-11 col-md-12 text-center">
-      <a href="https://docs.deso.org/#the-ultimate-vision" target="_blank">
-        <div
-          class="learnMore text-greyF col-lg-4 col-md-4 col-sm-12 col-xs-12 offset-lg-4 offset-md-4 mb-25px text-center"
-        >
-          Learn More
-        </div>
+      <h2 class="fs-35px text-grey4 primaryFontFamilyBold">A platform owned by its users.</h2>
+      <h4 class="landing__platform-desc primaryFontFamilyRegular text-grey4F">
+        Bitcoin is decentralizing money,
+        {{ environment.node.name }} is decentralizing social media.
+      </h4>
+      <a class="btn btn-sm landing__btn-cta" href="https://docs.deso.org/" target="_blank">
+        <div class="learnMore text-greyF">Learn More</div>
       </a>
-      <div class="row d-flex justify-content-center mb-30px">
-        <div class="col-sm-10 col-xs-12 mb-0 landingProp br-8px mb-30px">      
-     <a class="btn btn-sm landing__btn-cta" href="https://docs.deso.org/" target="_blank">
-        <div class="learnMore text-greyF">Learn More</div>     
-     </a>
     </div>
   </div>
 </div>
@@ -272,13 +266,14 @@
       animateOnScroll
       animationName="slide-up"
     >
-      <div class="col text-center">
-        <a class="btn btn-primary landing__sign-up" (click)="globalVars.launchSignupFlow()">Sign Up</a>
-        <a class="landing__log-in d-none d-md-block" (click)="globalVars.launchLoginFlow()">Log in</a>
+      <div class="col text-center primaryFontFamily">
+        <a class="btn primaryBackground text-greyF landing__sign-up" (click)="globalVars.launchSignupFlow()">SIGN UP</a>
+        <a class="landing__log-in d-none d-md-block" (click)="globalVars.launchLoginFlow()">LOGIN</a>
       </div>
     </div>
   </div>
 </div>
+
 <div class="w-100 landing__echo landing__footer1 primaryFontFamilyMedium">
   <div class="container-fluid">
     <div class="row d-flex">
