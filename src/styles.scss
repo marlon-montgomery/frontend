@@ -9,6 +9,7 @@ $darkGrey: #4F4F4F;
 $lightGrey: #D9D9D9;
 $akiraRed: #E21F28;
 $darkCharcoal: #333333;
+$gold: #FFD700;
 
 @import 'variables.scss';
 @import 'app/theme/themes/index';
@@ -33,7 +34,7 @@ html {
 }
 
 html, body {
-  font-family: 'Roboto Mono';
+  font-family: 'Poppins'; // Changed from Roboto Mono to Poppins
   min-height: 100%; // allows for scrolling
 }
 
@@ -53,7 +54,7 @@ h1 {
 h2,h3,h4,h5,h6,p {
   margin: 0;
   color: var(--text);
-  font-family: 'Roboto Mono';
+  font-family: 'Poppins'; // Changed from Roboto Mono to Poppins
   font-weight: normal;
 }
 
@@ -159,9 +160,14 @@ pre, code{
   background-color: $akiraRed !important;
   color: #FFFFFF !important;
 }
-.primaryColor {
-  color: $akiraRed;
+.headingLg {
+  color: $akiraRed !important;
 }
+
+.headingMd {
+  color: $gold !important;
+}
+
 .paddingSignUpBtn{
   background: linear-gradient(180deg, #F82F39 0%, #E21F28 100%);
   box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.15);
@@ -181,6 +187,10 @@ pre, code{
   padding: 20px 30px;
   box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.05);
   background-color: #FFFFFF;
+}
+
+.landingProp table {
+  color: $gold !important;
 }
 
 .toFollow {

@@ -116,6 +116,6 @@ export class LandingPageComponent implements OnInit {
   }
 
   getLogoBackground() {
-    return `url("${environment.node.logoAssetDir}camelcase_logo.svg")`
+    return `url("${environment.node.logoAssetDir}Mediatech-header.svg")`
   }
 }
