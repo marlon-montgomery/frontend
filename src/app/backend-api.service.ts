@@ -3,8 +3,8 @@
 // get the browser to save the cookie in the response.
 // https://github.com/github/fetch#sending-cookies
 import { Injectable } from "@angular/core";
-import { Observable, of, throwError } from "rxjs";
-import { map, mergeMap, switchMap, catchError, mapTo } from "rxjs/operators";
+import { interval, Observable, of, throwError, zip } from "rxjs";
+import { map, switchMap, catchError, filter, take, concatMap } from "rxjs/operators";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { IdentityService } from "./identity.service";
 import { environment } from "src/environments/environment";
@@ -415,16 +415,16 @@ export class BackendApiService {
   MessageMetaKey = "messageMetaKey";
 
   // Store the identity users in localStorage
-  IdentityUsersKey = "identityUsers";
+  IdentityUsersKey = "identityUsersV2";
 
   // Store last local node URL in localStorage
   LastLocalNodeKey = "lastLocalNodeV2";
 
   // Store last logged in user public key in localStorage
-  LastLoggedInUserKey = "lastLoggedInUser";
+  LastLoggedInUserKey = "lastLoggedInUserV2";
 
   // Store the last identity service URL in localStorage
-  LastIdentityServiceKey = "lastIdentityServiceURL";
+  LastIdentityServiceKey = "lastIdentityServiceURLV2";
 
   // TODO: Wipe all this data when transition is complete
   LegacyUserListKey = "userList";
@@ -1251,7 +1251,22 @@ export class BackendApiService {
       NewStakeMultipleBasisPoints,
       IsHidden,
       MinFeeRateNanosPerKB,
-    });
+    }).pipe(
+      switchMap((res) => {
+        // We need to wait until the profile creation has been comped.
+        if (res.CompProfileCreationTxnHashHex) {
+          return interval(500)
+            .pipe(
+              concatMap((iteration) => zip(this.GetTxn(endpoint, res.CompProfileCreationTxnHashHex), of(iteration)))
+            )
+            .pipe(filter(([txFound, iteration]) => txFound.TxnFound || iteration > 120))
+            .pipe(take(1))
+            .pipe(switchMap(() => of(res)));
+        } else {
+          return of(res);
+        }
+      })
+    );
 
     return this.signAndSubmitTransaction(endpoint, request, UpdaterPublicKeyBase58Check);
   }
